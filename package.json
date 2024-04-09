@@ -1,0 +1,22 @@
+{
+  "name": "lets_collab",
+  "version": "1.0.0",
+  "description": "collaborative storytelling platform",
+  "main": "index.js",
+  "author": "avinash.shukla",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.4",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "mysql2": "^3.9.1",
+    "sequelize": "^6.37.1",
+    "winston": "^3.11.0"
+  }
+}
