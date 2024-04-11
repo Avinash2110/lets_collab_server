@@ -15,6 +15,11 @@ const signup =  async (req, res) =>{
             throw new CustomException(result.errors[0].msg, 400);
         }
 
+        const emailExists = await User.findOne({where: {email: email}});
+        if(emailExists){
+            throw new CustomException("User with email already exists", 409);
+        }
+
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = await User.create({
             firstName: firstName,
