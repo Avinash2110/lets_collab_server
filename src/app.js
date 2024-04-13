@@ -22,7 +22,7 @@ async function testConnection(){
 
 //syncing the models with the db
 async function syncModel(){
-    await sequelize.sync({force: true});
+    await sequelize.sync({force: false});
     console.log("Model synced successfully")
 }
 
