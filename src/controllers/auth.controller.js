@@ -73,9 +73,14 @@ const login = async (req, res) => {
             expiresIn: '1h',
         })
 
+        res.cookie("access_token", token, {
+            httpOnly: true,
+            expire: new Date(Date.now() + 3600000)
+        })
+
         res.status(200).json({
             status: "success",
-            token: token
+            message: "User logged in successfully"
         })
 
     } catch (error) {
@@ -86,4 +91,11 @@ const login = async (req, res) => {
     }
 }
 
-export {signup, login};
+const logout = async (req, res) => {
+    res.clearCookie("access_token", {expire: Date.now()}).status(200).json({
+        status: "success",
+        message: "User logged out successfully"
+    });
+}
+
+export {signup, login, logout};
